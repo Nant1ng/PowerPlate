@@ -1,6 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
-import { BiMenu } from "react-icons/bi";
-import { GrMenu } from "react-icons/gr";
+import { Fade as Hamburger } from "hamburger-react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const HeaderWrapper = styled.header`
@@ -41,14 +41,21 @@ const Cart = styled.div`
 `;
 
 function Header() {
+  const [isOpen, setOpen] = useState(false);
+
   return (
     <HeaderWrapper>
       <Container>
         <MenuBtn>
-          <BiMenu size={30} />
+          <Hamburger
+            toggled={isOpen}
+            toggle={setOpen}
+            size={25}
+            direction="right"
+          />
         </MenuBtn>
         <Logo>
-          <h1>Power Plate</h1>
+          <h1>POWER PLATE</h1>
         </Logo>
         <Cart>
           <AiOutlineShoppingCart size={30} />
