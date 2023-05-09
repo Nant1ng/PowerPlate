@@ -2,10 +2,10 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Fade as Hamburger } from "hamburger-react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import Menu from "./Menu";
 
 const HeaderWrapper = styled.header`
   width: 100%;
-
   background-color: #ffffff;
 `;
 
@@ -44,24 +44,27 @@ function Header() {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <HeaderWrapper>
-      <Container>
-        <MenuBtn>
-          <Hamburger
-            toggled={isOpen}
-            toggle={setOpen}
-            size={25}
-            direction="right"
-          />
-        </MenuBtn>
-        <Logo>
-          <h1>POWER PLATE</h1>
-        </Logo>
-        <Cart>
-          <AiOutlineShoppingCart size={30} />
-        </Cart>
-      </Container>
-    </HeaderWrapper>
+    <>
+      <HeaderWrapper>
+        <Container>
+          <MenuBtn>
+            <Hamburger
+              toggled={isOpen}
+              toggle={setOpen}
+              size={25}
+              direction="right"
+            />
+          </MenuBtn>
+          <Logo>
+            <h1>POWER PLATE</h1>
+          </Logo>
+          <Cart>
+            <AiOutlineShoppingCart size={30} />
+          </Cart>
+        </Container>
+      </HeaderWrapper>
+      {isOpen ? <Menu /> : null}
+    </>
   );
 }
 
