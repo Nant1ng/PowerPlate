@@ -16,7 +16,7 @@ const Conatiner = styled.div`
 `;
 
 const MenuText = styled.h2`
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: #4a4a4a;
   cursor: pointer;
   position: relative;
