@@ -1,5 +1,8 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { SocialIcon } from "react-social-icons";
+import { FaCcStripe, FaCcMastercard, FaCcVisa } from "react-icons/fa";
+import { IconContext } from "react-icons";
 
 const Footer = styled.footer`
   position: absolute;
@@ -18,9 +21,10 @@ const Conatiner = styled.div`
 const FirstRow = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 1rem;
   justify-content: space-evenly;
+  align-items: center;
   width: 100%;
+  margin-bottom: 1rem;
 `;
 
 const Row = styled.div`
@@ -57,6 +61,16 @@ const Underline = styled.a`
   }
 `;
 
+const Socials = styled.div`
+  display: flex;
+`;
+
+const PaymentMethod = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 10rem;
+`;
+
 function index() {
   return (
     <Footer>
@@ -71,12 +85,54 @@ function index() {
         <Row>
           <Text>TERMS AND CONDITIONS</Text>
         </Row>
-        <Row>
-          Copyright © 2023,
-          <Link href="/" legacyBehavior>
-            <Underline>Power Plate Nutrition.</Underline>
-          </Link>
-        </Row>
+        <FirstRow>
+          <Socials>
+            <SocialIcon
+              url="https://www.youtube.com/"
+              fgColor="transparent"
+              bgColor="#4a4a4a"
+              style={{ width: "2rem", height: "2rem", marginRight: "0.5rem" }}
+            />
+            <SocialIcon
+              url="https://www.instagram.com/"
+              target="_blank"
+              fgColor="transparent"
+              bgColor="#4a4a4a"
+              style={{ width: "2rem", height: "2rem", marginRight: "0.5rem" }}
+            />
+            <SocialIcon
+              url="https://twitter.com/"
+              target="_blank"
+              fgColor="transparent"
+              bgColor="#4a4a4a"
+              style={{ width: "2rem", height: "2rem", marginRight: "0.5rem" }}
+            />
+            <SocialIcon
+              url="https://github.com/Nant1ng"
+              target="_blank"
+              fgColor="transparent"
+              bgColor="#4a4a4a"
+              style={{ width: "2rem", height: "2rem", marginRight: "0.5rem" }}
+            />
+          </Socials>
+          <div>
+            Copyright © 2023,
+            <Link href="/" legacyBehavior>
+              <Underline>Power Plate Nutrition.</Underline>
+            </Link>
+          </div>
+          <PaymentMethod>
+            <IconContext.Provider value={{ color: "#4a4a4a", size: "2rem" }}>
+              <FaCcStripe />
+            </IconContext.Provider>
+            <IconContext.Provider value={{ color: "#4a4a4a", size: "2rem" }}>
+              <FaCcMastercard />
+            </IconContext.Provider>
+            <IconContext.Provider value={{ color: "#4a4a4a", size: "2rem" }}>
+              <FaCcVisa />
+            </IconContext.Provider>
+          </PaymentMethod>
+        </FirstRow>
       </Conatiner>
     </Footer>
   );
