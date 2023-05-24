@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { TABLET_BP } from "./../../utils/breakpoints";
 import { SocialIcon } from "react-social-icons";
 import { FaCcStripe, FaCcMastercard, FaCcVisa } from "react-icons/fa";
 import { IconContext } from "react-icons";
@@ -18,20 +19,40 @@ const Conatiner = styled.div`
   padding-top: 1rem;
 `;
 
-const FirstRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 1rem;
+const MenuRow = styled.div`
+  display: none;
+  ${TABLET_BP} {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 `;
 
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
   color: #4a4a4a;
+  ${TABLET_BP} {
+    margin-bottom: 3rem;
+  }
+`;
+
+const BottomRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 120px;
+  margin-bottom: 1rem;
+  ${TABLET_BP} {
+    flex-direction: row;
+    height: 100%;
+  }
 `;
 
 const TextFirstRow = styled.a`
@@ -75,17 +96,18 @@ function index() {
   return (
     <Footer>
       <Conatiner>
-        <FirstRow>
+        <MenuRow>
           <TextFirstRow>SHOP ALL</TextFirstRow>
           <TextFirstRow>NUTRITIONS</TextFirstRow>
           <TextFirstRow>CLOTHES</TextFirstRow>
           <TextFirstRow>ABOUT</TextFirstRow>
+          <TextFirstRow>FOOD BLOG</TextFirstRow>
           <TextFirstRow>CONTACT</TextFirstRow>
-        </FirstRow>
+        </MenuRow>
         <Row>
           <Text>TERMS AND CONDITIONS</Text>
         </Row>
-        <FirstRow>
+        <BottomRow>
           <Socials>
             <SocialIcon
               url="https://www.youtube.com/"
@@ -132,7 +154,7 @@ function index() {
               <FaCcVisa />
             </IconContext.Provider>
           </PaymentMethod>
-        </FirstRow>
+        </BottomRow>
       </Conatiner>
     </Footer>
   );
